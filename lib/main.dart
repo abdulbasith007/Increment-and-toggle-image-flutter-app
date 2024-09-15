@@ -29,28 +29,27 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-  final summer = 'summer', winter = 'winter';
-  final summerImg = 'images/Summer.jpeg', winterImg = 'images/Winter.jpeg';
-  bool isSummerSeason = true;
+  int _ctrVar = 0;
+  final deadpoolImagePath = 'images/deadpool.jpg', wolverineImagePath = 'images/wolverine.jpg';
+  bool isDeadpoolImage = true;
   late final ColorScheme colorScheme;
 
   void _incrementCounter() {
     setState(() {
-      _counter++;
+      _ctrVar++;
     });
   }
 
-  void _changeSeason() {
+  void _toggleImage() {
     setState(() {
-      isSummerSeason = !isSummerSeason;
+      isDeadpoolImage = !isDeadpoolImage;
     });
   }
 
   void _resetState() {
     setState(() {
-      _counter = 0;
-      isSummerSeason = true;
+      _ctrVar = 0;
+      isDeadpoolImage = true;
     });
   }
 
@@ -70,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
               style: TextStyle(fontSize: 18),
             ),
             Text(
-              '$_counter',
+              '$_ctrVar',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             TextButton(
@@ -96,7 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: <Widget>[
                   Column(children: <Widget>[
                     Image.asset(
-                      isSummerSeason ? summerImg : winterImg,
+                      isDeadpoolImage ? deadpoolImagePath : wolverineImagePath,
                       fit: BoxFit.contain,
                       width: 300,
                     )
@@ -114,10 +113,27 @@ class _MyHomePageState extends State<MyHomePage> {
                     EdgeInsets.symmetric(horizontal: 20, vertical: 20)),
               ),
               onPressed: () {
-                _changeSeason();
+                _toggleImage();
               },
               child: Text(
                 'Toggle Image',
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+            ),
+            TextButton(
+              style: const ButtonStyle(
+                foregroundColor:
+                    WidgetStatePropertyAll(Color.fromARGB(0, 76, 76, 173)),
+                backgroundColor:
+                    WidgetStatePropertyAll(Color.fromARGB(255, 235, 155, 155)),
+                padding: WidgetStatePropertyAll(
+                    EdgeInsets.symmetric(horizontal: 20, vertical: 20)),
+              ),
+              onPressed: () {
+                _resetState();
+              },
+              child: Text(
+                'Reset',
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
             ),
