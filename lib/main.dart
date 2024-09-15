@@ -90,6 +90,37 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
             ),
+            Container(
+              margin: const EdgeInsets.only(top: 20),
+              child: Column(
+                children: <Widget>[
+                  Column(children: <Widget>[
+                    Image.asset(
+                      isSummerSeason ? summerImg : winterImg,
+                      fit: BoxFit.contain,
+                      width: 300,
+                    )
+                  ]),
+                ],
+              ),
+            ),
+            ElevatedButton(
+              style: const ButtonStyle(
+                foregroundColor:
+                    WidgetStatePropertyAll(Color.fromARGB(0, 123, 211, 89)),
+                backgroundColor:
+                    WidgetStatePropertyAll(Color.fromARGB(255, 114, 224, 100)),
+                padding: WidgetStatePropertyAll(
+                    EdgeInsets.symmetric(horizontal: 20, vertical: 20)),
+              ),
+              onPressed: () {
+                _changeSeason();
+              },
+              child: Text(
+                'Toggle Image',
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+            ),
           ],
         ),
       ),
