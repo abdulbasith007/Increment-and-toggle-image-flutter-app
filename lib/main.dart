@@ -30,28 +30,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _ctrVar = 0;
+
   final deadpoolImagePath = 'images/deadpool.jpg', wolverineImagePath = 'images/wolverine.jpg';
+
   bool isDeadpoolImage = true;
+
   late final ColorScheme colorScheme;
-
-  void _incrementCounter() {
-    setState(() {
-      _ctrVar++;
-    });
-  }
-
-  void _toggleImage() {
-    setState(() {
-      isDeadpoolImage = !isDeadpoolImage;
-    });
-  }
-
-  void _resetState() {
-    setState(() {
-      _ctrVar = 0;
-      isDeadpoolImage = true;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -130,7 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     EdgeInsets.symmetric(horizontal: 20, vertical: 20)),
               ),
               onPressed: () {
-                _resetState();
+                _resetCtrAndImage();
               },
               child: Text(
                 'Reset',
@@ -142,4 +126,18 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+
+  _incrementCounter() => setState(() {
+        ++_ctrVar;
+      });
+
+  _toggleImage() => setState(() {
+        isDeadpoolImage = !isDeadpoolImage;
+      });
+
+  _resetCtrAndImage() => setState(() {
+        _ctrVar = 0;
+        isDeadpoolImage = true;
+      });
+
 }
