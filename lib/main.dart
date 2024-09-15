@@ -13,10 +13,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Mobile App Development - Assignment 1',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Increment & Toggle Button Actions',),
+      home: const MyHomePage(title: 'Increment and toggle image app',),
     );
   }
 }
@@ -49,8 +49,8 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             const Text(
-              'Push the button to increment the count:',
-              style: TextStyle(fontSize: 18),
+              'You have pushed the button this many times:',
+              style: TextStyle(fontSize: 16),
             ),
             Text(
               '$_ctrVar',
@@ -92,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 foregroundColor:
                     WidgetStatePropertyAll(Color.fromARGB(0, 123, 211, 89)),
                 backgroundColor:
-                    WidgetStatePropertyAll(Color.fromARGB(255, 114, 224, 100)),
+                    WidgetStatePropertyAll(Color.fromARGB(255, 75, 107, 194)),
                 padding: WidgetStatePropertyAll(
                     EdgeInsets.symmetric(horizontal: 20, vertical: 20)),
               ),
@@ -104,7 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
             ),
-            TextButton(
+            ElevatedButton(
               style: const ButtonStyle(
                 foregroundColor:
                     WidgetStatePropertyAll(Color.fromARGB(0, 76, 76, 173)),
@@ -117,7 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 _resetCtrAndImage();
               },
               child: Text(
-                'Reset',
+                'Reset Everything',
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
             ),
